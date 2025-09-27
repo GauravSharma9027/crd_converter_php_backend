@@ -4,12 +4,14 @@ FROM php:8.2-cli
 # Set working directory
 WORKDIR /app
 
-# Install dependencies and PHP extensions
+# Install system dependencies + PHP extensions
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
     git \
     curl \
+    libonig-dev \
+    libxml2-dev \
     && docker-php-ext-install zip fileinfo mbstring curl
 
 # Copy Composer from official Composer image
@@ -21,7 +23,7 @@ COPY . .
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose port
+# Expose port for PHP built-in server
 EXPOSE 8080
 
 # Start PHP built-in server
