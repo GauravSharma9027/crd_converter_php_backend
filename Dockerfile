@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y \
     curl \
     libonig-dev \
     libxml2-dev \
+    libcurl4-openssl-dev \
     && docker-php-ext-install zip fileinfo mbstring curl
+
 
 # Copy Composer from official Composer image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
