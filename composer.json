@@ -1,10 +1,13 @@
 {
-  "name": "converter-php-backend",
+  "name": "converterphp/backend",
   "description": "A simple PHP backend for converting data using external APIs.",
   "type": "project",
   "require": {
+    "php": "^8.0",
     "slim/slim": "^4.0",
-    "vlucas/phpdotenv": "^5.0"
+    "vlucas/phpdotenv": "^5.6",
+    "guzzlehttp/guzzle": "^7.10",
+    "slim/psr7": "^1.7"
   },
   "autoload": {
     "psr-4": {
